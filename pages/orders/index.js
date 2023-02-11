@@ -86,7 +86,7 @@ const orders = ({}) => {
         setUserStatus(null);
         signOut({ callbackUrl: "/login" });
       } else {
-        fetch("http://localhost:8000/api/users/verify/", {
+        fetch("https://mercurius-backend.up.railway.app/api/users/verify/", {
           method: "POST",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify(userStatus),
@@ -107,7 +107,7 @@ const orders = ({}) => {
         const user = JSON.parse(window.localStorage.getItem("UserData"));
         if (user.id) {
           const allOrders = fetch(
-            `http://localhost:8000/api/orders/${user.id}/`
+            `https://mercurius-backend.up.railway.app/api/orders/${user.id}/`
           )
             .then((res) => res.json())
             .then((res) => {

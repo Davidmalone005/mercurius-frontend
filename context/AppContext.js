@@ -88,7 +88,7 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     if (typeof window !== "undefined" || typeof window !== null) {
-      const allAddresses = fetch("http://localhost:8000/api/addresses/")
+      const allAddresses = fetch("https://mercurius-backend.up.railway.app/api/addresses/")
         .then((res) => res.json())
         .then((res) => {
           if (res.length > 0) {
@@ -106,7 +106,7 @@ export const AppProvider = ({ children }) => {
                 const shippingDestination = defaultAddresses[0].state;
                 const sdArr = shippingDestination.split(" ");
                 const shippingFee = fetch(
-                  `http://localhost:8000/api/orders/shippingrates/${sdArr[0]}/`
+                  `https://mercurius-backend.up.railway.app/api/orders/shippingrates/${sdArr[0]}/`
                 )
                   .then((res) => res.json())
                   .then((res) => {

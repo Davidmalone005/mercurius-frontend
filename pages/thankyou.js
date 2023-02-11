@@ -34,7 +34,7 @@ const thankyou = () => {
         setUserStatus(null);
         signOut({ callbackUrl: "/login" });
       } else {
-        fetch("http://localhost:8000/api/users/verify/", {
+        fetch("https://mercurius-backend.up.railway.app/api/users/verify/", {
           method: "POST",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify(userStatus),

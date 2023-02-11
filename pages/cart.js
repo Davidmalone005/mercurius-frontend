@@ -64,7 +64,7 @@ const cart = () => {
       };
 
       await fetch(
-        `http://localhost:8000/api/orders/coupons/${data.coupon_code}/`,
+        `https://mercurius-backend.up.railway.app/api/orders/coupons/${data.coupon_code}/`,
         options
       )
         .then((res) => res.json())
@@ -87,7 +87,7 @@ const cart = () => {
             };
 
             fetch(
-              `http://localhost:8000/api/orders/coupons/${data.coupon_code}/disable`,
+              `https://mercurius-backend.up.railway.app/api/orders/coupons/${data.coupon_code}/disable`,
               options
             )
               .then((res) => res.json())

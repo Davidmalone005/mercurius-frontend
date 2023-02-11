@@ -41,7 +41,7 @@ const change_password = ({ }) => {
         setUserStatus(null);
         signOut({ callbackUrl: "/login" });
       } else {
-        fetch("http://localhost:8000/api/users/verify/", {
+        fetch("https://mercurius-backend.up.railway.app/api/users/verify/", {
           method: "POST",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify(userStatus),
@@ -94,7 +94,7 @@ const change_password = ({ }) => {
           };
 
           await fetch(
-            `http://localhost:8000/api/users/${userStatus.id}/change-password/`,
+            `https://mercurius-backend.up.railway.app/api/users/${userStatus.id}/change-password/`,
             options
           )
             .then((res) => res.json())

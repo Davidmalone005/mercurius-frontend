@@ -28,7 +28,9 @@ const Header = () => {
     "https://res.cloudinary.com/dxhq8jlxf/" + imgUrl.replace(/ /g, "%20");
 
   useEffect(() => {
-    const categories = fetch("http://localhost:8000/api/inventory/c/")
+    const categories = fetch(
+      "https://mercurius-backend.up.railway.app/api/inventory/c/"
+    )
       .then((res) => res.json())
       .then((catData) => setCategoriesData(catData));
 

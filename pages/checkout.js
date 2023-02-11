@@ -68,7 +68,7 @@ const Checkout = ({}) => {
         setUserStatus(null);
         signOut({ callbackUrl: "/login" });
       } else {
-        fetch("http://localhost:8000/api/users/verify/", {
+        fetch("https://mercurius-backend.up.railway.app/api/users/verify/", {
           method: "POST",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify(userStatus),
@@ -121,7 +121,7 @@ const Checkout = ({}) => {
         setItems(itemsArr);
       }
 
-      const allAddresses = fetch("http://localhost:8000/api/addresses/")
+      const allAddresses = fetch("https://mercurius-backend.up.railway.app/api/addresses/")
         .then((res) => res.json())
         .then((res) => {
           if (res.length > 0) {
@@ -141,7 +141,7 @@ const Checkout = ({}) => {
                 const shippingDestination = defaultAddresses[0].state;
                 const sdArr = shippingDestination.split(" ");
                 const shippingFee = fetch(
-                  `http://localhost:8000/api/orders/shippingrates/${sdArr[0]}/`
+                  `https://mercurius-backend.up.railway.app/api/orders/shippingrates/${sdArr[0]}/`
                 )
                   .then((res) => res.json())
                   .then((res) => {

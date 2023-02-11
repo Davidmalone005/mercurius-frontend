@@ -29,7 +29,10 @@ const contact = () => {
         body: JSON.stringify(data),
       };
 
-      await fetch("http://localhost:8000/api/contact/", options)
+      await fetch(
+        "https://mercurius-backend.up.railway.app/api/contact/",
+        options
+      )
         .then((res) => res.json())
         .then((resData) => {
           if (resData.email) {

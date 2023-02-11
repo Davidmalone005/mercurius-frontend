@@ -53,13 +53,13 @@ const Login = ({}) => {
           body: JSON.stringify(data),
         };
         const user = fetch(
-          "http://localhost:8000/api/users/verify/",
+          "https://mercurius-backend.up.railway.app/api/users/verify/",
           options
         )
           .then((res) => res.json())
           .then((userData) => {
             fetch(
-              "http://localhost:8000/api/users/login/",
+              "https://mercurius-backend.up.railway.app/api/users/login/",
               options
             )
               .then((res2) => res2.json())

@@ -56,7 +56,7 @@ const addresses = ({ userStatus }) => {
           body: JSON.stringify(data),
         };
 
-        await fetch(`http://localhost:8000/api/addresses/add/`, options)
+        await fetch(`https://mercurius-backend.up.railway.app/api/addresses/add/`, options)
           .then((res) => res.json())
           .then((resData) => {
             if (resData.errors) {
@@ -523,7 +523,7 @@ export const getServerSideProps = async ({ req }) => {
       },
     };
   } else {
-    await fetch("http://localhost:8000/api/users/verify/", {
+    await fetch("https://mercurius-backend.up.railway.app/api/users/verify/", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(session.user),

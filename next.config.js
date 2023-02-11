@@ -7,7 +7,7 @@ const nextConfig = {
       "lh3.googleusercontent.com",
       "http://localhost:3000/",
       "http://localhost:8000/",
-      "https://mercurius-api-production.up.railway.app/",
+      "https://mercurius-backend.up.railway.app/",
       "res.cloudinary.com",
     ],
   },

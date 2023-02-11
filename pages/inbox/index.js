@@ -87,7 +87,7 @@ const inbox = () => {
         setUserStatus(null);
         signOut({ callbackUrl: "/login" });
       } else {
-        fetch("http://localhost:8000/api/users/verify/", {
+        fetch("https://mercurius-backend.up.railway.app/api/users/verify/", {
           method: "POST",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify(userStatus),
@@ -107,7 +107,7 @@ const inbox = () => {
       if (window.localStorage.getItem("UserData")) {
         const user = JSON.parse(window.localStorage.getItem("UserData"));
         if (user.id) {
-          const allInbox = fetch(`http://localhost:8000/api/inbox/${user.id}/`)
+          const allInbox = fetch(`https://mercurius-backend.up.railway.app/api/inbox/${user.id}/`)
             .then((res) => res.json())
             .then((res) => {
               setUserInbox(res);
@@ -123,7 +123,7 @@ const inbox = () => {
       inbox.has_been_read = true;
       console.log("Updated Inbox", inbox);
 
-      fetch(`http://localhost:8000/api/inbox/${inbox.user}/${inbox.id}/`, {
+      fetch(`https://mercurius-backend.up.railway.app/api/inbox/${inbox.user}/${inbox.id}/`, {
         method: "PUT",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(inbox),

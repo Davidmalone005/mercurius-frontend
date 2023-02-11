@@ -94,7 +94,7 @@ const storehouse = () => {
         setUserStatus(null);
         signOut({ callbackUrl: "/login" });
       } else {
-        fetch("http://localhost:8000/api/users/verify/", {
+        fetch("https://mercurius-backend.up.railway.app/api/users/verify/", {
           method: "POST",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify(userStatus),
@@ -115,7 +115,7 @@ const storehouse = () => {
         const user = JSON.parse(window.localStorage.getItem("UserData"));
         if (user.id) {
           const allOrders = fetch(
-            `http://localhost:8000/api/orders/${user.id}/`
+            `https://mercurius-backend.up.railway.app/api/orders/${user.id}/`
           )
             .then((res) => res.json())
             .then((res) => {
@@ -188,7 +188,7 @@ const storehouse = () => {
         }
       }
 
-      const shippingFee = fetch("http://localhost:8000/api/addresses/")
+      const shippingFee = fetch("https://mercurius-backend.up.railway.app/api/addresses/")
         .then((res) => res.json())
         .then((res) => {
           if (res.length > 0) {
@@ -208,7 +208,7 @@ const storehouse = () => {
                 const shippingDestination = defaultAddresses[0].state;
                 const sdArr = shippingDestination.split(" ");
                 const shippingFee = fetch(
-                  `http://localhost:8000/api/orders/shippingrates/${sdArr[0]}/`
+                  `https://mercurius-backend.up.railway.app/api/orders/shippingrates/${sdArr[0]}/`
                 )
                   .then((res) => res.json())
                   .then((res) => {
