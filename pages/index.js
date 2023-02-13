@@ -27,13 +27,15 @@ export default function Home({
 
   const [userStatus, setUserStatus] = useState(null);
 
-  if (session && session.user && session.user.name) {
-    window.localStorage.setItem("UserData", JSON.stringify(session.user));
-    setUserInfo(session.user);
-    setUserStatus(session.user);
-  }
+  
 
   useEffect(() => {
+    if (session && session.user && session.user.name) {
+      window.localStorage.setItem("UserData", JSON.stringify(session.user));
+      setUserInfo(session.user);
+      setUserStatus(session.user);
+    }
+    
     if (products.length !== 0) {
       window.localStorage.setItem("ProductsData", JSON.stringify(products));
       setProducts(JSON.parse(window.localStorage.getItem("ProductsData")));
