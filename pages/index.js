@@ -35,7 +35,7 @@ export default function Home({
         setUserStatus(session.user);
       }
     }
-  }, [session, session.user]);
+  }, [session]);
 
   useEffect(() => {
     if (products.length !== 0) {
