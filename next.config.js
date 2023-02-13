@@ -8,6 +8,7 @@ const nextConfig = {
       "http://localhost:3000/",
       "http://localhost:8000/",
       "https://mercurius-backend.up.railway.app/",
+      "https://mercurius.ng",
       "res.cloudinary.com",
     ],
   },
