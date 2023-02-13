@@ -99,7 +99,9 @@ const account = ({}) => {
           });
       }
 
-      const allAddresses = fetch("https://mercurius-backend.up.railway.app/api/addresses/")
+      const allAddresses = fetch(
+        "https://mercurius-backend.up.railway.app/api/addresses/"
+      )
         .then((res) => res.json())
         .then((res) => {
           if (res.length > 0) {
@@ -121,6 +123,8 @@ const account = ({}) => {
         });
     }
   }, []);
+
+  console.log(userStatus);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
