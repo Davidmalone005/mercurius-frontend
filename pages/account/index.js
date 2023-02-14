@@ -67,10 +67,10 @@ const account = ({}) => {
   const [asideOpen, setAsideOpen] = useState(false);
   const [defaultAddress, setDefaultAddress] = useState(null);
 
-  // console.log("before useEffect")
+  console.log("before useEffect")
 
   useEffect(() => {
-    // console.log("inside useEffect");
+    console.log("inside useEffect");
 
     if (typeof window !== "undefined" || typeof window !== null) {
       console.log("inside window checker inside the useEffect");
@@ -130,7 +130,7 @@ const account = ({}) => {
     }
   }, []);
 
-  // console.log("after useEffect");
+  console.log("after useEffect");
 
   // console.log(userStatus);
 
