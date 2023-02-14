@@ -67,8 +67,14 @@ const account = ({}) => {
   const [asideOpen, setAsideOpen] = useState(false);
   const [defaultAddress, setDefaultAddress] = useState(null);
 
+  console.log("before useEffect")
+
   useEffect(() => {
+    console.log("inside useEffect");
+
     if (typeof window !== "undefined" || typeof window !== null) {
+      console.log("inside window checker inside the useEffect");
+
       if (
         (window.localStorage.getItem("UserData") &&
           userStatus === "undefined") ||
@@ -124,7 +130,9 @@ const account = ({}) => {
     }
   }, []);
 
-  console.log(userStatus);
+  console.log("after useEffect");
+
+  // console.log(userStatus);
 
   return (
     <section className="w-[85%] mx-auto max-w-screen-xl">
