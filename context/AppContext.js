@@ -88,7 +88,9 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     if (typeof window !== "undefined" || typeof window !== null) {
-      const allAddresses = fetch("https://mercurius-backend.up.railway.app/api/addresses/")
+      const allAddresses = fetch(
+        "https://mercurius-backend.up.railway.app/api/addresses/"
+      )
         .then((res) => res.json())
         .then((res) => {
           if (res.length > 0) {
@@ -103,22 +105,31 @@ export const AppProvider = ({ children }) => {
                   (address) => address.is_default === true
                 );
 
-                const shippingDestination = defaultAddresses[0].state;
-                const sdArr = shippingDestination.split(" ");
-                const shippingFee = fetch(
-                  `https://mercurius-backend.up.railway.app/api/orders/shippingrates/${sdArr[0]}/`
-                )
-                  .then((res) => res.json())
-                  .then((res) => {
-                    if (res.detail) {
-                      setShipping(3500);
-                    } else {
-                      setShipping(res.shipping_fee);
-                    }
-                  });
+                const shippingDestination =
+                  defaultAddresses.length > 0
+                    ? defaultAddresses[0].state
+                    : null;
+
+                const sdArr = shippingDestination
+                  ? shippingDestination.split(" ")
+                  : null;
+
+                if (sdArr && sdArr.length > 0) {
+                  const shippingFee = fetch(
+                    `https://mercurius-backend.up.railway.app/api/orders/shippingrates/${sdArr[0]}/`
+                  )
+                    .then((res) => res.json())
+                    .then((res) => {
+                      if (res.detail) {
+                        setShipping(3500);
+                      } else {
+                        setShipping(res.shipping_fee);
+                      }
+                    });
+                }
+                setSalesTax(appState.cart.length * 10);
+                setTotalCartAmt(totalPrice + shipping + salesTax);
               }
-              setSalesTax(appState.cart.length * 10);
-              setTotalCartAmt(totalPrice + shipping + salesTax);
             }
           }
         });
